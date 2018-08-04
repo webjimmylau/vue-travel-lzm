@@ -7,7 +7,9 @@ import router from './router'
 import fastClick from 'fastclick' // 延迟300毫秒
 
 import 'styles/reset.css' // 重置
+import 'styles/common.css' // 公共
 import 'styles/border.css' // 1像素边
+import 'styles/iconfont.css' // 文字图标
 
 fastClick.attach(document.body)
 

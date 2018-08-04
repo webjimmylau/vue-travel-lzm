@@ -1,0 +1,20 @@
+.fn-clear:after{
+  display: table;
+  content: '';
+  clear: both
+}
+.f-l{
+  float: left;
+}
+.f-r{
+  float: right;
+}
+.hide{
+  display: none;
+}
+.t-hide{
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
