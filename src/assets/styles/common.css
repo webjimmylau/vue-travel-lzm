@@ -18,3 +18,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.flex{
+  display: flex;
+}
+.symbol-price:before{
+  display: inline;
+  content: '¥';
+}
