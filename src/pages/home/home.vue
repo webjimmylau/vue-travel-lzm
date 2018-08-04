@@ -4,6 +4,7 @@
     <home-banner></home-banner>
     <home-icon></home-icon>
     <home-like></home-like>
+    <home-weekend></home-weekend>
   </div>
 </template>
 
@@ -12,13 +13,15 @@
   import HomeBanner from './components/banner'
   import HomeIcon from './components/icon'
   import HomeLike from './components/like'
+  import HomeWeekend from './components/weekend'
 
   export default {
     components: {
       HomeHead,
       HomeBanner,
       HomeIcon,
-      HomeLike
+      HomeLike,
+      HomeWeekend
     }
   }
 </script>
