@@ -4,9 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import fastClick from 'fastclick' // 延迟300毫秒
+
+import 'styles/reset.css' // 重置
+import 'styles/border.css' // 1像素边
+
+fastClick.attach(document.body)
+
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
