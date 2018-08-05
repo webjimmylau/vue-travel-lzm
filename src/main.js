@@ -11,6 +11,10 @@ import 'styles/common.css' // 公共
 import 'styles/border.css' // 1像素边
 import 'styles/iconfont.css' // 文字图标
 
+import Gallery from '@/pages/common/gallery'
+
+Vue.component('c-gallery', Gallery)
+
 fastClick.attach(document.body)
 
 Vue.config.productionTip = false
