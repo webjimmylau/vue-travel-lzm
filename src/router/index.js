@@ -4,6 +4,7 @@ import path from './path'
 
 import Home from '@/pages/home/home'
 import City from '@/pages/city/city'
+import Detail from '@/pages/detail/detail'
 
 Vue.use(Router)
 
@@ -17,6 +18,10 @@ export default new Router({
     {
       path: path.city,
       component: City
+    },
+    {
+      path: path.detail,
+      component: Detail
     }
   ]
 })
