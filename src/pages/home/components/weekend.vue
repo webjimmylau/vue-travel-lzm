@@ -57,7 +57,7 @@
       .img
         width: 100%
       .weekend-info
-        margin .2rem 0
+        margin-top .2rem
         .info-item
           margin-top .1rem
         .info-name

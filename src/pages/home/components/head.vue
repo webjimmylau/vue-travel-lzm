@@ -1,7 +1,7 @@
 <template>
   <div class="head">
     <div class="head-l">
-      <span class="iconfont">&#xe600;</span>
+      <span class="iconfont icon-scan">&#xe62e;</span>
     </div>
     <div class="head-c">
       <div class="search">
@@ -29,6 +29,8 @@
   .head-l
     padding 0 .1rem
     color #fff
+    .icon-scan
+      font-size .48rem
   .head-c
     flex 1
     padding 0 .1rem
