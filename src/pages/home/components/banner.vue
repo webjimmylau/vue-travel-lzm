@@ -1,8 +1,8 @@
 <template>
   <div class="banner" v-if="hasList">
     <swiper :options="swiperOption">
-      <swiper-slide v-for="(item, index) in swiperSlides" :key="index">
-        <img :src="item">
+      <swiper-slide v-for="(item, index) in list" :key="item.id">
+        <img :src="item.imgUrl">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -21,13 +21,12 @@
             el: '.swiper-pagination'
           },
           loop: true
-        },
-        swiperSlides: this.list
+        }
       }
     },
     computed: {
       hasList(){
-        return this.swiperSlides.length
+        return this.list.length
       }
     }
   }
@@ -36,7 +35,7 @@
 <style lang="stylus" scoped>
   .banner
     height 0
-    padding-bottom 26.67%
+    padding-bottom 31.25%
     overflow hidden
     img
       width 100%

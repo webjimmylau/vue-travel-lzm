@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
 import fastClick from 'fastclick' // 延迟300毫秒
 import VueAwesomeSwiper from 'vue-awesome-swiper' // 图片轮播
@@ -21,6 +22,7 @@ Vue.component('c-fade', Fade)
 Vue.component('c-gallery', Gallery)
 Vue.use(VueAwesomeSwiper, /*{default global options}*/)
 Vue.prototype.$scroll = BScroll
+Vue.prototype.$http = axios
 
 fastClick.attach(document.body)
 

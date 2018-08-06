@@ -18,12 +18,7 @@
   export default {
     data(){
       return {
-        bannerList: [
-          'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg',
-          'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg',
-          'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg',
-          'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg',
-        ],
+        bannerList: [],
         iconList: [
           {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
           {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
@@ -71,6 +66,25 @@
           }
         ]
       }
+    },
+    methods: {
+      getHomeData(){
+        this.$http
+          .get('/api/index.json')
+          .then((res) => {
+            let resData = res.data;
+            if(resData.ret && resData.data){
+              let data = resData.data
+              this.bannerList = data.bannerList
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+    },
+    created(){
+      this.getHomeData()
     },
     components: {
       HomeHead,
