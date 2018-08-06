@@ -9,10 +9,10 @@
         输入城市/景点/游玩主题...
       </div>
     </div>
-    <div class="head-r">
+    <router-link to="/city" tag="div" class="head-r">
       <span class="city-name t-hide">佛山</span>
       <span class="iconfont icon-bottom">&#xe6a4;</span>
-    </div>
+    </router-link>
   </div>
 </template>
 

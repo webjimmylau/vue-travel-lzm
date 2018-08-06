@@ -5,28 +5,18 @@
       周末去哪儿
     </div>
     <div class="weekend-cont">
-      <div class="weekend-item">
+      <div
+        class="weekend-item"
+        v-for="(item, index) in list"
+        :key="item.id">
         <div class="weekend-item-cont border-bottom">
-          <img class="img" src="http://img1.qunarzz.com/sight/source/1505/92/580e9ea4f37a1b.jpg_r_640x214_72112761.jpg">
+          <img class="img" :src="item.imgUrl">
           <div class="weekend-info">
             <div class="info-item">
-              <div class="info-name">广州必游TOP10</div>
+              <div class="info-name">{{item.title}}</div>
             </div>
             <div class="info-item">
-              <div class="info-desc">感受现代与传统相融合的广州</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="weekend-item">
-        <div class="weekend-item-cont border-bottom">
-          <img class="img" src="http://img1.qunarzz.com/sight/source/1505/92/580e9ea4f37a1b.jpg_r_640x214_72112761.jpg">
-          <div class="weekend-info">
-            <div class="info-item">
-              <div class="info-name">广州必游TOP10</div>
-            </div>
-            <div class="info-item">
-              <div class="info-desc">感受现代与传统相融合的广州</div>
+              <div class="info-desc">{{item.desc}}</div>
             </div>
           </div>
         </div>
@@ -36,7 +26,11 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    props: {
+      list: Array
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>
@@ -68,5 +62,4 @@
           overflow hidden
         .info-desc
           color #666
-
 </style>

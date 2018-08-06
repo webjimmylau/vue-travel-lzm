@@ -5,50 +5,40 @@
       猜你喜欢
     </div>
     <div class="like-cont">
-      <div class="like-item border-bottom">
-        <img class="img" src="http://img1.qunarzz.com/sight/p0/1702/36/36b399f9cb55e519a3.water.jpg_200x200_0542ec91.jpg">
+      <router-link
+        to="/detail"
+        tag="div"
+        class="like-item border-bottom"
+        v-for="(item, index) in list"
+        :key="item.id">
+        <img class="img" :src="item.imgUrl">
         <div class="like-info">
           <div class="info-cont">
             <div class="info-t">
-              <div class="info-name">西樵山国艺影视城</div>
+              <div class="info-name">{{item.name}}</div>
               <div class="info-item">
-                <div class="info-comments">1294条评论</div>
+                <div class="info-comments">{{item.comments}}条评论</div>
               </div>
             </div>
             <div class="info-b">
               <div class="info-item">
-                <div class="info-price"><span class="symbol-price"></span>18.00</div>
-                <div class="info-address">南海区</div>
+                <div class="info-price"><span class="symbol-price"></span>{{item.price}}</div>
+                <div class="info-address">{{item.address}}</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="like-item border-bottom">
-        <img class="img" src="http://img1.qunarzz.com/sight/p0/1702/36/36b399f9cb55e519a3.water.jpg_200x200_0542ec91.jpg">
-        <div class="like-info">
-          <div class="info-cont">
-            <div class="info-t">
-              <div class="info-name">西樵山国艺影视城</div>
-              <div class="info-item">
-                <div class="info-comments">1294条评论</div>
-              </div>
-            </div>
-            <div class="info-b">
-              <div class="info-item">
-                <div class="info-price"><span class="symbol-price"></span>18.00</div>
-                <div class="info-address">南海区</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    props: {
+      list: Array
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>
@@ -90,5 +80,4 @@
           .info-price
             font-size .32rem
             color $orangeRed
-
 </style>

@@ -1,13 +1,17 @@
 <template>
     <div class="letter">
-      <span class="letter-item">A</span>
-      <span class="letter-item">B</span>
-      <span class="letter-item">C</span>
+      <span
+        class="letter-item"
+        v-for="(item, index) in list"
+        :key="index">{{item}}</span>
     </div>
 </template>
 
 <script>
     export default {
+      props: {
+        list: Array
+      }
     }
 </script>
 

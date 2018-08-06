@@ -1,40 +1,23 @@
 <template>
   <div class="ticket">
-    <div class="ticket-item">
+    <div
+      class="ticket-item"
+      v-for="(item, index) in list"
+      :key="index">
       <div class="ticket-text">
-        <span class="iconfont icon-ticket">&#xe601;</span>成人票
+        <span class="iconfont icon-ticket">&#xe601;</span>{{item.name}}
       </div>
-      <div class="ticket">
-        <div class="ticket-item">
-          <div class="ticket-text">
-            <span class="iconfont icon-ticket">&#xe601;</span>成人票
-          </div>
-          <div class="ticket">
-            <div class="ticket-item">
-              <div class="ticket-text">
-                <span class="iconfont icon-ticket">&#xe601;</span>成人票
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ticket-item">
-      <div class="ticket-text">
-        <span class="iconfont icon-ticket">&#xe601;</span>成人票
-      </div>
-    </div>
-
-    <div class="ticket-item">
-      <div class="ticket-text">
-        <span class="iconfont icon-ticket">&#xe601;</span>成人票
-      </div>
+      <detail-ticket :list="item.children"></detail-ticket>
     </div>
   </div>
 </template>
 
 <script>
     export default {
+      name: 'DetailTicket',
+      props: {
+        list: Array
+      }
     }
 </script>
 

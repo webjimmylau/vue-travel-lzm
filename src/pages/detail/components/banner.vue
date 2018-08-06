@@ -1,20 +1,40 @@
 <template>
     <div class="banner">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_600x330_cd2e3bf7.jpg">
+      <img class="banner-img" @click="showGallery" :src="data.imgUrl">
       <div class="banner-cont">
         <div class="banner-title t-hide">
-          详情名称
+          {{data.name}}
         </div>
         <div class="banner-num">
           <span class="iconfont icon-img">&#xe716;</span>
-          23
+          {{data.num}}
         </div>
       </div>
+      <c-fade>
+        <c-gallery v-if="isShowGallery" :list="list" @click="hideGallery"></c-gallery>
+      </c-fade>
     </div>
 </template>
 
 <script>
     export default {
+      props: {
+        data: Object,
+        list: Array
+      },
+      data(){
+        return {
+          isShowGallery: false
+        }
+      },
+      methods: {
+        showGallery(){
+          this.isShowGallery = true
+        },
+        hideGallery(){
+          this.isShowGallery = false
+        }
+      }
     }
 </script>
 
@@ -23,7 +43,6 @@
     position relative
     height 0
     padding-bottom 55%
-    overflow hidden
     .banner-img
       width 100%
     .banner-cont

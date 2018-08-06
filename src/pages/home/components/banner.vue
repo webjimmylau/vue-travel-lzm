@@ -1,11 +1,36 @@
 <template>
-  <div class="banner">
-    <img src="http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg">
+  <div class="banner" v-if="hasList">
+    <swiper :options="swiperOption">
+      <swiper-slide v-for="(item, index) in swiperSlides" :key="index">
+        <img :src="item">
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    props: {
+      list: Array
+    },
+    data() {
+      return {
+        swiperOption: {
+          pagination: {
+            el: '.swiper-pagination'
+          },
+          loop: true
+        },
+        swiperSlides: this.list
+      }
+    },
+    computed: {
+      hasList(){
+        return this.swiperSlides.length
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>
