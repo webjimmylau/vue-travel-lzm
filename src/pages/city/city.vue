@@ -2,7 +2,10 @@
     <div class="city">
       <city-head></city-head>
       <city-search></city-search>
-      <city-list :data="listData"></city-list>
+      <city-list
+        :currentCityStr="currentCity"
+        :hotCitiesArr="hotCities"
+        :citiesObj="cities"></city-list>
       <city-letter :list="letterList"></city-letter>
     </div>
 </template>
@@ -16,25 +19,31 @@
     export default {
       data(){
         return {
-          listData: {
-            currentCity: '北京',
-            hotCity: [
-              '北京',
-              '上海',
-              '广州',
-              '深圳',
-              '杭州',
-            ],
-            letterCity: [
-              {letter: 'A', list: ['A1', 'A2', 'A3', 'A4', 'A5']},
-              {letter: 'B', list: ['B1', 'B2', 'B3', 'B4', 'B5']},
-              {letter: 'C', list: ['C1', 'C2', 'C3', 'C4', 'C5']},
-              {letter: 'D', list: ['D1', 'D2', 'D3', 'D4', 'D5']},
-              {letter: 'E', list: ['E1', 'E2', 'E3', 'E4', 'E5']},
-            ]
-          },
-          letterList: ['A', 'B', 'C', 'D', 'E']
+          currentCity: '北京',
+          hotCities: [],
+          cities: {},
+          letterList: []
         }
+      },
+      methods: {
+        getCityListInfo(){
+          this.$http
+            .get(this.$api.city)
+            .then(res => {
+              const resData = res.data
+              if(resData.ret && resData.data){
+                const data = resData.data
+                this.hotCities = data.hotCities
+                this.cities = data.cities
+                for(let item in data.cities){
+                  this.letterList.push(item)
+                }
+              }
+            })
+        }
+      },
+      mounted(){
+        this.getCityListInfo()
       },
       components: {
         CityHead,

@@ -18,49 +18,36 @@
       name: 'Detail',
       data(){
         return {
-          headTitle: '详情名称',
+          headTitle: '',
           bannerData: {
-            name: '详情名称',
-            num: 23,
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_600x330_cd2e3bf7.jpg'
+            name: '',
+            num: 0,
+            imgUrl: ''
           },
-          galleryList: [
-            'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_r_800x800_41637b9b.jpg',
-            'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_r_800x800_41637b9b.jpg',
-            'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_r_800x800_41637b9b.jpg',
-            'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_r_800x800_41637b9b.jpg',
-            'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_r_800x800_41637b9b.jpg',
-          ],
-          ticketList: [
-            {
-              name: 'A1',
-              children: [
-                {
-                  name: 'A2',
-                  children: [
-                    {name: 'A3'},
-                    {name: 'A3'},
-                    {name: 'A3'},
-                  ]
-                },
-                {
-                  name: 'A2',
-                  children: [
-                    {name: 'A3'},
-                    {name: 'A3'},
-                    {name: 'A3'},
-                  ]
-                }
-              ]
-            },
-            {
-              name: 'B1'
-            },
-            {
-              name: 'C1'
-            }
-          ]
+          galleryList: [],
+          ticketList: []
         }
+      },
+      methods: {
+        getDetailInfo(){
+          this.$http
+            .get(this.$api.detail)
+            .then(res => {
+              const resData = res.data
+              if(resData.ret && resData.data){
+                const data = resData.data
+                this.headTitle = data.sightName
+                this.bannerData.imgUrl = data.bannerImg
+                this.bannerData.name = data.sightName
+                this.bannerData.num = data.gallaryImgs.length
+                this.galleryList = data.gallaryImgs
+                this.ticketList = data.categoryList
+              }
+            })
+        }
+      },
+      mounted(){
+        this.getDetailInfo()
       },
       components: {
         DetailHead,

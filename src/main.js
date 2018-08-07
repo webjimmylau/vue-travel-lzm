@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import api from './utility/api'
 import axios from 'axios'
 
 import fastClick from 'fastclick' // 延迟300毫秒
@@ -23,6 +24,7 @@ Vue.component('c-gallery', Gallery)
 Vue.use(VueAwesomeSwiper, /*{default global options}*/)
 Vue.prototype.$scroll = BScroll
 Vue.prototype.$http = axios
+Vue.prototype.$api = api
 
 fastClick.attach(document.body)
 

@@ -16,25 +16,25 @@
         <div class="area-cont fn-clear">
           <div
             class="area-item border"
-            v-for="(item, index) in hotCity"
-            :key="index">
-            <span>{{item}}</span>
+            v-for="(item, index) in hotCities"
+            :key="item.id">
+            <span>{{item.name}}</span>
           </div>
         </div>
       </div>
       <div
         class="area"
-        v-for="(list, index) in letterCity"
-        :key="list.letter">
+        v-for="(list, key, index) in cities"
+        :key="key">
         <div class="area-title">
-          {{list.letter}}
+          {{key}}
         </div>
         <div class="area-cont fn-clear">
           <div
             class="area-item border"
-            v-for="(item, index) in list.list"
-            :key="index">
-            <span>{{item}}</span>
+            v-for="(item, index) in list"
+            :key="item.id">
+            <span>{{item.name}}</span>
           </div>
         </div>
       </div>
@@ -45,13 +45,19 @@
 <script>
     export default {
       props: {
-        data: Object
+        currentCityStr: String,
+        hotCitiesArr: Array,
+        citiesObj: Object
       },
-      data(){
-        return {
-          currentCity: this.data.currentCity,
-          hotCity: this.data.hotCity,
-          letterCity: this.data.letterCity
+      computed: {
+        currentCity(){
+          return this.currentCityStr
+        },
+        hotCities(){
+          return this.hotCitiesArr
+        },
+        cities(){
+          return this.citiesObj
         }
       },
       mounted(){

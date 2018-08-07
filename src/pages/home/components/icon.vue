@@ -2,9 +2,12 @@
   <div class="icons fn-clear" v-if="isIconData">
     <swiper :options="swiperOption">
       <swiper-slide v-for="(page, i) in pages" :key="i">
-        <div class="icon-item" v-for="(item, index) in page" :key="index">
-          <img :src="item.imgUrl">
-          {{item.name}}
+        <div
+          class="icon-item"
+          v-for="(item, index) in page"
+          :key="item.id">
+            <img :src="item.imgUrl">
+          {{item.desc}}
         </div>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -53,7 +56,13 @@
   .swiper-container
     overflow inherit
   .swiper-pagination-bullets
-    bottom -10px
+    bottom -.24rem
+  .swiper-pagination-bullet
+    width .4rem
+    height .08rem
+    border-radius 0
+  .swiper-pagination-bullet-active
+    background $defaultColor
 .icons
   padding-bottom .4rem
   background #fff
@@ -65,6 +74,6 @@
     text-align center
     overflow hidden
     img
-      width 60%
-      margin 10% 20% 5% 20%
+      width 50%
+      margin 10% 25%
 </style>

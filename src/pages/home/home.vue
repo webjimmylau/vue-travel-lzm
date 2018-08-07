@@ -19,63 +19,23 @@
     data(){
       return {
         bannerList: [],
-        iconList: [
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-          {name: '景点门票', imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
-        ],
-        likeList: [
-          {
-            id: '0001',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1702/36/36b399f9cb55e519a3.water.jpg_200x200_0542ec91.jpg',
-            name: '西樵山国艺影视城',
-            comments: '1924',
-            price: '18.00',
-            address: '南海区'
-          },
-          {
-            id: '0002',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1702/36/36b399f9cb55e519a3.water.jpg_200x200_0542ec91.jpg',
-            name: '西樵山国艺影视城',
-            comments: '1924',
-            price: '18.00',
-            address: '南海区'
-          }
-        ],
-        weekendList: [
-          {
-            id: '0001',
-            imgUrl: 'http://img1.qunarzz.com/sight/source/1505/92/580e9ea4f37a1b.jpg_r_640x214_72112761.jpg',
-            title: '广州必游TOP10',
-            desc: '感受现代与传统相融合的广州'
-          },
-          {
-            id: '0002',
-            imgUrl: 'http://img1.qunarzz.com/sight/source/1505/92/580e9ea4f37a1b.jpg_r_640x214_72112761.jpg',
-            title: '广州必游TOP10',
-            desc: '感受现代与传统相融合的广州'
-          }
-        ]
+        iconList: [],
+        likeList: [],
+        weekendList: []
       }
     },
     methods: {
       getHomeData(){
         this.$http
-          .get('/api/index.json')
-          .then((res) => {
+          .get(this.$api.home)
+          .then(res => {
             let resData = res.data;
             if(resData.ret && resData.data){
               let data = resData.data
               this.bannerList = data.bannerList
+              this.iconList = data.iconList
+              this.likeList = data.recommendList
+              this.weekendList = data.weekendList
             }
           })
           .catch((err) => {

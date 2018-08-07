@@ -5,7 +5,7 @@
       v-for="(item, index) in list"
       :key="index">
       <div class="ticket-text">
-        <span class="iconfont icon-ticket">&#xe601;</span>{{item.name}}
+        <span class="iconfont icon-ticket">&#xe601;</span>{{item.title}}
       </div>
       <detail-ticket :list="item.children"></detail-ticket>
     </div>

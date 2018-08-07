@@ -17,7 +17,7 @@
             <div class="info-t">
               <div class="info-name">{{item.name}}</div>
               <div class="info-item">
-                <div class="info-comments">{{item.comments}}条评论</div>
+                <div class="info-comment">{{item.comment}}条评论</div>
               </div>
             </div>
             <div class="info-b">
@@ -47,7 +47,7 @@
   background #fff
   .like-title
     padding .2rem
-    font-size .36rem
+    font-size .32rem
     .icon-like
       color $orangeRed
   .like-cont
@@ -71,12 +71,13 @@
         .info-name
           max-height .88rem
           line-height .44rem
-          font-size .32rem
           overflow hidden
         .info-item
           display flex
           justify-content space-between
           margin-top .1rem
+          .info-comment, .info-address
+            color #999
           .info-price
             font-size .32rem
             color $orangeRed

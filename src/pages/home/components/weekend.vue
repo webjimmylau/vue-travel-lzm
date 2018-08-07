@@ -13,7 +13,7 @@
           <img class="img" :src="item.imgUrl">
           <div class="weekend-info">
             <div class="info-item">
-              <div class="info-name">{{item.title}}</div>
+              <div class="info-name">{{item.name}}</div>
             </div>
             <div class="info-item">
               <div class="info-desc">{{item.desc}}</div>
@@ -38,7 +38,7 @@
   margin-top .2rem
   .weekend-title
     padding .2rem
-    font-size .36rem
+    font-size .32rem
     .icon-weekend
       font-size .40rem
       color $orangeRed
@@ -58,8 +58,7 @@
           margin-top .2rem
           max-height .88rem
           line-height .44rem
-          font-size .32rem
           overflow hidden
         .info-desc
-          color #666
+          color #999
 </style>

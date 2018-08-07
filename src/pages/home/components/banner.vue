@@ -20,6 +20,11 @@
           pagination: {
             el: '.swiper-pagination'
           },
+          autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: false,
+          },
           loop: true
         }
       }
@@ -33,6 +38,9 @@
 </script>
 
 <style lang="stylus" scoped>
+  .banner >>>
+    .swiper-pagination-bullet-active
+      background $defaultColor
   .banner
     height 0
     padding-bottom 31.25%
