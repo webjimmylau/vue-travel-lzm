@@ -7,7 +7,7 @@
       <div class="ticket-text">
         <span class="iconfont icon-ticket">&#xe601;</span>{{item.title}}
       </div>
-      <detail-ticket :list="item.children"></detail-ticket>
+      <detail-ticket :list="item.children"/>
     </div>
   </div>
 </template>

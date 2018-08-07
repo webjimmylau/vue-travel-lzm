@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <home-head></home-head>
-    <home-banner :list="bannerList"></home-banner>
-    <home-icon :list="iconList"></home-icon>
-    <home-like :list="likeList"></home-like>
-    <home-weekend :list="weekendList"></home-weekend>
+    <home-banner :list="bannerList"/>
+    <home-icon :list="iconList"/>
+    <home-like :list="likeList"/>
+    <home-weekend :list="weekendList"/>
   </div>
 </template>
 

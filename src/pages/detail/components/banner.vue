@@ -11,7 +11,10 @@
       </div>
     </div>
     <c-fade>
-      <c-gallery v-if="isShowGallery" :list="list" @click="hideGallery"></c-gallery>
+      <c-gallery
+        v-if="isShowGallery"
+        :list="list"
+        @click="hideGallery"/>
     </c-fade>
   </div>
 </template>

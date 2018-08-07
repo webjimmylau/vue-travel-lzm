@@ -1,5 +1,5 @@
 <template>
-  <div class="like">
+  <div class="like" v-if="isShowList">
     <div class="like-title">
       <span class="iconfont icon-like">&#xe627;</span>
       猜你喜欢
@@ -9,7 +9,7 @@
         to="/detail"
         tag="div"
         class="like-item border-bottom"
-        v-for="(item, index) in list"
+        v-for="item in list"
         :key="item.id">
         <img class="img" :src="item.imgUrl">
         <div class="like-info">
@@ -37,6 +37,11 @@
   export default {
     props: {
       list: Array
+    },
+    computed: {
+      isShowList() {
+        return this.list.length
+      }
     }
   }
 </script>

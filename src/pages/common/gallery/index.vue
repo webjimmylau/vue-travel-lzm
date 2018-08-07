@@ -1,7 +1,10 @@
 <template>
-  <div class="gallery" @click="handleClick">
+  <div class="gallery" v-if="isShowList" @click="handleClick">
     <swiper :options="swiperOption">
-      <swiper-slide class="gallery-img" v-for="(item, index) in swiperSlides" :key="index">
+      <swiper-slide
+        class="gallery-img"
+        v-for="(item, index) in list"
+        :key="index">
         <img :src="item">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -21,8 +24,12 @@
             el: '.swiper-pagination',
             type: 'fraction'
           }
-        },
-        swiperSlides: this.list
+        }
+      }
+    },
+    computed: {
+      isShowList() {
+        return this.list.length
       }
     },
     methods: {
@@ -34,13 +41,11 @@
 </script>
 
 <style lang="stylus" scoped>
-  .gallery >>>
-  .swiper-container
+  .gallery >>> .swiper-container
     height 100%
-
-  .swiper-pagination-fraction
-    bottom .4rem
-    color #fff
+    .swiper-pagination-fraction
+      bottom .4rem
+      color #fff
 
   .gallery
     position fixed

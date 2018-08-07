@@ -1,5 +1,5 @@
 <template>
-  <div class="weekend">
+  <div class="weekend" v-if="isShowList">
     <div class="weekend-title">
       <span class="iconfont icon-weekend">&#xe6e2;</span>
       周末去哪儿
@@ -7,7 +7,7 @@
     <div class="weekend-cont">
       <div
         class="weekend-item"
-        v-for="(item, index) in list"
+        v-for="item in list"
         :key="item.id">
         <div class="weekend-item-cont border-bottom">
           <img class="img" :src="item.imgUrl">
@@ -29,6 +29,11 @@
   export default {
     props: {
       list: Array
+    },
+    computed: {
+      isShowList() {
+        return this.list.length
+      }
     }
   }
 </script>

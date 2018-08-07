@@ -1,27 +1,33 @@
-.fn-clear:after{
+.fn-clear:after {
   display: table;
   content: '';
   clear: both
 }
-.f-l{
+
+.f-l {
   float: left;
 }
-.f-r{
+
+.f-r {
   float: right;
 }
-.hide{
+
+.hide {
   display: none;
 }
-.t-hide{
+
+.t-hide {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.flex{
+
+.flex {
   display: flex;
 }
-.symbol-price:before{
+
+.symbol-price:before {
   display: inline;
   content: '¥';
 }

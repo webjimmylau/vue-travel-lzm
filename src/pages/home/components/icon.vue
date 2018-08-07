@@ -1,13 +1,13 @@
 <template>
-  <div class="icons fn-clear" v-if="isIconData">
+  <div class="icons fn-clear" v-if="isShowList">
     <swiper :options="swiperOption">
       <swiper-slide v-for="(page, i) in pages" :key="i">
         <div
           class="icon-item"
-          v-for="(item, index) in page"
+          v-for="item in page"
           :key="item.id">
           <img :src="item.imgUrl">
-          {{item.desc}}
+          <p>{{item.desc}}</p>
         </div>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -44,7 +44,7 @@
         }
         return arr
       },
-      isIconData() {
+      isShowList() {
         return this.pages.length
       },
     }
@@ -52,20 +52,16 @@
 </script>
 
 <style lang="stylus" scoped>
-  .icons >>>
-  .swiper-container
+  .icons >>> .swiper-container
     overflow inherit
-
-  .swiper-pagination-bullets
-    bottom -.24rem
-
-  .swiper-pagination-bullet
-    width .4rem
-    height .08rem
-    border-radius 0
-
-  .swiper-pagination-bullet-active
-    background $defaultColor
+    .swiper-pagination-bullets
+      bottom -.24rem
+      .swiper-pagination-bullet
+        width .4rem
+        height .08rem
+        border-radius 0
+      .swiper-pagination-bullet-active
+        background $defaultColor
 
   .icons
     padding-bottom .4rem

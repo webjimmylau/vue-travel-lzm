@@ -6,10 +6,10 @@
     @touchmove="handleTouchMove"
     ref="letter">
     <div class="letter-cont" ref="letterCont">
-        <span
-          class="letter-item"
-          v-for="item in list"
-          :key="item">{{item}}</span>
+      <span
+        class="letter-item"
+        v-for="item in list"
+        :key="item">{{item}}</span>
     </div>
   </div>
 </template>

@@ -16,7 +16,7 @@
         <div class="area-cont fn-clear">
           <div
             class="area-item border"
-            v-for="(item, index) in hotCities"
+            v-for="item in hotCities"
             :key="item.id">
             <span>{{item.name}}</span>
           </div>
@@ -33,7 +33,7 @@
         <div class="area-cont fn-clear">
           <div
             class="area-item border"
-            v-for="(item, index) in list"
+            v-for="item in list"
             :key="item.id">
             <span>{{item.name}}</span>
           </div>
@@ -108,5 +108,4 @@
             background $defaultColor
             &.border:before
               border-color $defaultColor
-
 </style>

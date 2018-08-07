@@ -8,7 +8,7 @@
       <div class="content" v-else>
         <div
           class="result-item border-bottom"
-          v-for="(item, index) in cityResult"
+          v-for="item in cityResult"
           :key="item.id">{{item.name}}
         </div>
       </div>
@@ -68,7 +68,6 @@
 </script>
 
 <style lang="stylus" scoped>
-
   .search
     position relative
     z-index 1

@@ -1,11 +1,9 @@
 <template>
   <div class="detail">
-    <detail-head :title="headTitle"></detail-head>
-    <detail-banner :data="bannerData" :list="galleryList"></detail-banner>
-    <detail-ticket :list="ticketList"></detail-ticket>
-    <div class="content">
-
-    </div>
+    <detail-head :title="headTitle"/>
+    <detail-banner :data="bannerData" :list="galleryList"/>
+    <detail-ticket :list="ticketList"/>
+    <div class="content"></div>
   </div>
 </template>
 

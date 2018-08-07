@@ -1,13 +1,13 @@
 <template>
   <div class="city">
-    <city-head></city-head>
-    <city-search :citiesObj="cities"></city-search>
+    <city-head/>
+    <city-search :citiesObj="cities"/>
     <city-list
       :currentCityStr="currentCity"
       :hotCitiesArr="hotCities"
       :citiesObj="cities"
-      :currentLetter="currentLetter"></city-list>
-    <city-letter :list="letterList" @change="handleLetterChange"></city-letter>
+      :currentLetter="currentLetter"/>
+    <city-letter :list="letterList" @change="handleLetterChange"/>
   </div>
 </template>
 
