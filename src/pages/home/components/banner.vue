@@ -30,7 +30,7 @@
       }
     },
     computed: {
-      hasList(){
+      hasList() {
         return this.list.length
       }
     }
@@ -39,8 +39,9 @@
 
 <style lang="stylus" scoped>
   .banner >>>
-    .swiper-pagination-bullet-active
-      background $defaultColor
+  .swiper-pagination-bullet-active
+    background $defaultColor
+
   .banner
     height 0
     padding-bottom 31.25%

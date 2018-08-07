@@ -6,7 +6,7 @@
           class="icon-item"
           v-for="(item, index) in page"
           :key="item.id">
-            <img :src="item.imgUrl">
+          <img :src="item.imgUrl">
           {{item.desc}}
         </div>
       </swiper-slide>
@@ -30,13 +30,13 @@
       }
     },
     computed: {
-      pages(){
+      pages() {
         let arr = []
         let len = this.list.length
-        if(len){
-          this.list.forEach((item, index)=>{
+        if (len) {
+          this.list.forEach((item, index) => {
             let page = Math.floor(index / 8)
-            if(!arr[page]){
+            if (!arr[page]) {
               arr[page] = []
             }
             arr[page].push(item)
@@ -44,7 +44,7 @@
         }
         return arr
       },
-      isIconData(){
+      isIconData() {
         return this.pages.length
       },
     }
@@ -52,28 +52,32 @@
 </script>
 
 <style lang="stylus" scoped>
-.icons >>>
+  .icons >>>
   .swiper-container
     overflow inherit
+
   .swiper-pagination-bullets
     bottom -.24rem
+
   .swiper-pagination-bullet
     width .4rem
     height .08rem
     border-radius 0
+
   .swiper-pagination-bullet-active
     background $defaultColor
-.icons
-  padding-bottom .4rem
-  background #fff
-  .icon-item
-    float left
-    width 25%
-    height 0
-    padding-bottom 25%
-    text-align center
-    overflow hidden
-    img
-      width 50%
-      margin 10% 25%
+
+  .icons
+    padding-bottom .4rem
+    background #fff
+    .icon-item
+      float left
+      width 25%
+      height 0
+      padding-bottom 25%
+      text-align center
+      overflow hidden
+      img
+        width 50%
+        margin 10% 25%
 </style>

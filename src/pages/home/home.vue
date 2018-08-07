@@ -16,7 +16,7 @@
   import HomeWeekend from './components/weekend'
 
   export default {
-    data(){
+    data() {
       return {
         bannerList: [],
         iconList: [],
@@ -25,12 +25,12 @@
       }
     },
     methods: {
-      getHomeData(){
+      getHomeData() {
         this.$http
           .get(this.$api.home)
           .then(res => {
             let resData = res.data;
-            if(resData.ret && resData.data){
+            if (resData.ret && resData.data) {
               let data = resData.data
               this.bannerList = data.bannerList
               this.iconList = data.iconList
@@ -43,7 +43,7 @@
           })
       }
     },
-    created(){
+    created() {
       this.getHomeData()
     },
     components: {

@@ -21,37 +21,37 @@
 </script>
 
 <style lang="stylus" scoped>
-.head
-  display flex
-  height $headHeight
-  line-height $headHeight
-  background $defaultColor
-  .head-l
-    padding 0 .1rem
-    color #fff
-    .icon-scan
-      font-size .48rem
-  .head-c
-    flex 1
-    padding 0 .1rem
-    .search
-      display block
-      box-sizing border-box
-      width 100%
-      height .6rem
-      padding 0 .2rem
-      line-height .6rem
-      margin .14rem 0
-      color #ccc
-      background #fff
-      border-radius .04rem
-  .head-r
+  .head
     display flex
-    padding 0 .1rem
-    color #fff
-    .city-name
-      max-width 1.2rem
-      .icon-bottom
-        vertical-align top
+    height $headHeight
+    line-height $headHeight
+    background $defaultColor
+    .head-l
+      padding 0 .1rem
+      color #fff
+      .icon-scan
+        font-size .48rem
+    .head-c
+      flex 1
+      padding 0 .1rem
+      .search
+        display block
+        box-sizing border-box
+        width 100%
+        height .6rem
+        padding 0 .2rem
+        line-height .6rem
+        margin .14rem 0
+        color #ccc
+        background #fff
+        border-radius .04rem
+    .head-r
+      display flex
+      padding 0 .1rem
+      color #fff
+      .city-name
+        max-width 1.2rem
+        .icon-bottom
+          vertical-align top
 
 </style>

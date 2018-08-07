@@ -1,41 +1,41 @@
 <template>
-    <div class="banner">
-      <img class="banner-img" @click="showGallery" :src="data.imgUrl">
-      <div class="banner-cont">
-        <div class="banner-title t-hide">
-          {{data.name}}
-        </div>
-        <div class="banner-num">
-          <span class="iconfont icon-img">&#xe716;</span>
-          {{data.num}}
-        </div>
+  <div class="banner">
+    <img class="banner-img" @click="showGallery" :src="data.imgUrl">
+    <div class="banner-cont">
+      <div class="banner-title t-hide">
+        {{data.name}}
       </div>
-      <c-fade>
-        <c-gallery v-if="isShowGallery" :list="list" @click="hideGallery"></c-gallery>
-      </c-fade>
+      <div class="banner-num">
+        <span class="iconfont icon-img">&#xe716;</span>
+        {{data.num}}
+      </div>
     </div>
+    <c-fade>
+      <c-gallery v-if="isShowGallery" :list="list" @click="hideGallery"></c-gallery>
+    </c-fade>
+  </div>
 </template>
 
 <script>
-    export default {
-      props: {
-        data: Object,
-        list: Array
+  export default {
+    props: {
+      data: Object,
+      list: Array
+    },
+    data() {
+      return {
+        isShowGallery: false
+      }
+    },
+    methods: {
+      showGallery() {
+        this.isShowGallery = true
       },
-      data(){
-        return {
-          isShowGallery: false
-        }
-      },
-      methods: {
-        showGallery(){
-          this.isShowGallery = true
-        },
-        hideGallery(){
-          this.isShowGallery = false
-        }
+      hideGallery() {
+        this.isShowGallery = false
       }
     }
+  }
 </script>
 
 <style lang="stylus" scoped>

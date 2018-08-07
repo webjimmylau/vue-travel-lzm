@@ -34,31 +34,31 @@
 </script>
 
 <style lang="stylus" scoped>
-.weekend
-  margin-top .2rem
-  .weekend-title
-    padding .2rem
-    font-size .32rem
-    .icon-weekend
-      font-size .40rem
-      color $orangeRed
-  .weekend-cont
-    .weekend-item
-      padding-bottom .1rem
-      .weekend-item-cont
-        padding .2rem
-        background #fff
-      .img
-        width: 100%
-      .weekend-info
-        margin-top .2rem
-        .info-item
-          margin-top .1rem
-        .info-name
+  .weekend
+    margin-top .2rem
+    .weekend-title
+      padding .2rem
+      font-size .32rem
+      .icon-weekend
+        font-size .40rem
+        color $orangeRed
+    .weekend-cont
+      .weekend-item
+        padding-bottom .1rem
+        .weekend-item-cont
+          padding .2rem
+          background #fff
+        .img
+          width: 100%
+        .weekend-info
           margin-top .2rem
-          max-height .88rem
-          line-height .44rem
-          overflow hidden
-        .info-desc
-          color #999
+          .info-item
+            margin-top .1rem
+          .info-name
+            margin-top .2rem
+            max-height .88rem
+            line-height .44rem
+            overflow hidden
+          .info-desc
+            color #999
 </style>

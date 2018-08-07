@@ -1,7 +1,7 @@
 <template>
   <div class="list wrapper">
     <div class="content">
-      <div class="area">
+      <div class="area border-bottom">
         <div class="area-title">
           选择城市
         </div>
@@ -9,7 +9,7 @@
           <div class="area-item border active"><span>{{currentCity}}</span></div>
         </div>
       </div>
-      <div class="area">
+      <div class="area border-bottom">
         <div class="area-title">
           热门城市
         </div>
@@ -23,9 +23,10 @@
         </div>
       </div>
       <div
-        class="area"
+        class="area border-bottom"
         v-for="(list, key, index) in cities"
-        :key="key">
+        :key="key"
+        :ref="key">
         <div class="area-title">
           {{key}}
         </div>
@@ -43,28 +44,38 @@
 </template>
 
 <script>
-    export default {
-      props: {
-        currentCityStr: String,
-        hotCitiesArr: Array,
-        citiesObj: Object
+  export default {
+    props: {
+      currentCityStr: String,
+      hotCitiesArr: Array,
+      citiesObj: Object,
+      currentLetter: String
+    },
+    computed: {
+      currentCity() {
+        return this.currentCityStr
       },
-      computed: {
-        currentCity(){
-          return this.currentCityStr
-        },
-        hotCities(){
-          return this.hotCitiesArr
-        },
-        cities(){
-          return this.citiesObj
-        }
+      hotCities() {
+        return this.hotCitiesArr
       },
-      mounted(){
-        const BScroll = this.$scroll
-        const scroll = new BScroll('.wrapper')
+      cities() {
+        return this.citiesObj
       }
+    },
+    watch: {
+      currentLetter() {
+        if (this.currentLetter) {
+          let element = this.$refs[this.currentLetter][0]
+          this.scroll.scrollToElement(element)
+        }
+
+      }
+    },
+    mounted() {
+      const BScroll = this.$scroll
+      this.scroll = new BScroll('.wrapper')
     }
+  }
 </script>
 
 <style lang="stylus" scoped>
@@ -77,7 +88,6 @@
     background $bgColor
     overflow hidden
     .area
-      padding-top .2rem
       .area-title
         padding .2rem
       .area-cont
