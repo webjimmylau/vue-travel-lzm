@@ -46,6 +46,8 @@
 </template>
 
 <script>
+  import { mapState, mapActions } from 'vuex'
+
   export default {
     props: {
       hotCitiesArr: Array,
@@ -53,9 +55,7 @@
       currentLetter: String
     },
     computed: {
-      city() {
-        return this.$store.state.city
-      },
+      ...mapState(['city']),
       hotCities() {
         return this.hotCitiesArr
       },
@@ -64,8 +64,9 @@
       }
     },
     methods: {
+      ...mapActions(['changeCity']),
       handleChangeCity(city){
-        this.$store.dispatch('changeCity', city)
+        this.changeCity(city)
         this.$router.push('/')
       }
     },

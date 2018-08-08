@@ -17,11 +17,11 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     computed: {
-      city(){
-        return this.$store.state.city
-      }
+      ...mapState(['city'])
     }
   }
 </script>
