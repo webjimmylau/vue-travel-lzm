@@ -6,7 +6,7 @@
           选择城市
         </div>
         <div class="area-cont fn-clear">
-          <div class="area-item border active"><span>{{currentCity}}</span></div>
+          <div class="area-item border active"><span>{{city.name}}</span></div>
         </div>
       </div>
       <div class="area border-bottom">
@@ -17,14 +17,15 @@
           <div
             class="area-item border"
             v-for="item in hotCities"
-            :key="item.id">
+            :key="item.id"
+            @click="handleChangeCity(item)">
             <span>{{item.name}}</span>
           </div>
         </div>
       </div>
       <div
         class="area border-bottom"
-        v-for="(list, key, index) in cities"
+        v-for="(list, key) in cities"
         :key="key"
         :ref="key">
         <div class="area-title">
@@ -34,7 +35,8 @@
           <div
             class="area-item border"
             v-for="item in list"
-            :key="item.id">
+            :key="item.id"
+            @click="handleChangeCity(item)">
             <span>{{item.name}}</span>
           </div>
         </div>
@@ -46,20 +48,25 @@
 <script>
   export default {
     props: {
-      currentCityStr: String,
       hotCitiesArr: Array,
       citiesObj: Object,
       currentLetter: String
     },
     computed: {
-      currentCity() {
-        return this.currentCityStr
+      city() {
+        return this.$store.state.city
       },
       hotCities() {
         return this.hotCitiesArr
       },
       cities() {
         return this.citiesObj
+      }
+    },
+    methods: {
+      handleChangeCity(city){
+        this.$store.dispatch('changeCity', city)
+        this.$router.push('/')
       }
     },
     watch: {

@@ -3,7 +3,6 @@
     <city-head/>
     <city-search :citiesObj="cities"/>
     <city-list
-      :currentCityStr="currentCity"
       :hotCitiesArr="hotCities"
       :citiesObj="cities"
       :currentLetter="currentLetter"/>
@@ -20,7 +19,6 @@
   export default {
     data() {
       return {
-        currentCity: '北京',
         hotCities: [],
         cities: {},
         letterList: [],

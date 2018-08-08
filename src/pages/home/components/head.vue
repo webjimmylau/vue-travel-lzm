@@ -10,14 +10,20 @@
       </div>
     </div>
     <router-link to="/city" tag="div" class="head-r">
-      <span class="city-name t-hide">佛山</span>
+      <span class="city-name t-hide">{{city.name}}</span>
       <span class="iconfont icon-bottom">&#xe6a4;</span>
     </router-link>
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    computed: {
+      city(){
+        return this.$store.state.city
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>
