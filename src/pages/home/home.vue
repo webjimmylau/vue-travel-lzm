@@ -15,6 +15,8 @@
   import HomeLike from './components/like'
   import HomeWeekend from './components/weekend'
 
+  import { mapState } from 'vuex'
+
   export default {
     data() {
       return {
@@ -24,10 +26,17 @@
         weekendList: []
       }
     },
+    computed: {
+      ...mapState(['city'])
+    },
     methods: {
       getHomeData() {
         this.$http
-          .get(this.$api.home)
+          .get(this.$api.home, {
+            params: {
+              id: this.city.id
+            }
+          })
           .then(res => {
             let resData = res.data;
             if (resData.ret && resData.data) {
