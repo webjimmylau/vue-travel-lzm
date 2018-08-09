@@ -29,7 +29,11 @@
     methods: {
       getDetailInfo() {
         this.$http
-          .get(this.$api.detail)
+          .get(this.$api.detail,{
+            params: {
+              name: this.$route.query.name
+            }
+          })
           .then(res => {
             const resData = res.data
             if (resData.ret && resData.data) {

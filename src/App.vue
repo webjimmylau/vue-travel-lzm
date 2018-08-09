@@ -1,12 +1,21 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive :exclude="exclude">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'App'
+    name: 'App',
+    data(){
+      return {
+        exclude: [
+          'Detail' // 需要缓存的组件
+        ]
+      }
+    }
   }
 </script>
 

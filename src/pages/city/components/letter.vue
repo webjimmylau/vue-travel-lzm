@@ -2,7 +2,7 @@
   <div
     class="letter"
     @click="handleClickLetter"
-    @touchstart="handleTouchStart"
+    @touchstart.prevent="handleTouchStart"
     @touchmove="handleTouchMove"
     ref="letter">
     <div class="letter-cont" ref="letterCont">

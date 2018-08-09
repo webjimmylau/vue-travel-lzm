@@ -5,7 +5,9 @@
       周末去哪儿
     </div>
     <div class="weekend-cont">
-      <div
+      <router-link
+        :to="'/detail?name=' + item.name"
+        tag="div"
         class="weekend-item"
         v-for="item in list"
         :key="item.id">
@@ -20,7 +22,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

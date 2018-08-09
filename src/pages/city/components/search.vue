@@ -9,7 +9,8 @@
         <div
           class="result-item border-bottom"
           v-for="item in cityResult"
-          :key="item.id">{{item.name}}
+          :key="item.id"
+          @click="handleChangeCity(item)">{{item.name}}
         </div>
       </div>
     </div>
@@ -17,6 +18,8 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     props: {
       citiesObj: Object
@@ -58,6 +61,13 @@
             }
           })
         }
+      }
+    },
+    methods: {
+      ...mapActions(['changeCity']),
+      handleChangeCity(city){
+        this.changeCity(city)
+        this.$router.push('/')
       }
     },
     mounted() {

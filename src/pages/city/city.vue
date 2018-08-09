@@ -17,6 +17,7 @@
   import CityLetter from './components/letter'
 
   export default {
+    name: 'City',
     data() {
       return {
         hotCities: [],

@@ -18,6 +18,7 @@
   import { mapState } from 'vuex'
 
   export default {
+    name: 'Home',
     data() {
       return {
         bannerList: [],
@@ -29,12 +30,17 @@
     computed: {
       ...mapState(['city'])
     },
+    watch: {
+      city(){
+        this.getHomeData()
+      }
+    },
     methods: {
       getHomeData() {
         this.$http
           .get(this.$api.home, {
             params: {
-              id: this.city.id
+              name: this.city.name
             }
           })
           .then(res => {

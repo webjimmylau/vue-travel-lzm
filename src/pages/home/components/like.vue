@@ -6,7 +6,7 @@
     </div>
     <div class="like-cont">
       <router-link
-        to="/detail"
+        :to="'/detail?name=' + item.name"
         tag="div"
         class="like-item border-bottom"
         v-for="item in list"

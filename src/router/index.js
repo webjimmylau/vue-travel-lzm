@@ -22,6 +22,16 @@ export default new Router({
     {
       path: path.detail,
       component: Detail
+    },
+    {
+      path: '*',
+      redirect: path.home
     }
-  ]
+  ],
+  scrollBehavior(to, from, savePosition){
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
